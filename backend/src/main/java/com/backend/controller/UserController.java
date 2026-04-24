@@ -1,6 +1,6 @@
 package com.backend.controller;
 
-import com.backend.auth.dto.UserResponse;
+import com.backend.DTO.response.UserResponse;
 import com.backend.service.AuthService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;

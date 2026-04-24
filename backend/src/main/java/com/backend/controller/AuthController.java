@@ -1,8 +1,8 @@
 package com.backend.controller;
 
-import com.backend.auth.dto.AuthResponse;
-import com.backend.auth.dto.LoginRequest;
-import com.backend.auth.dto.RegisterRequest;
+import com.backend.DTO.request.LoginRequest;
+import com.backend.DTO.request.RegisterRequest;
+import com.backend.DTO.response.AuthResponse;
 import com.backend.service.AuthService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
