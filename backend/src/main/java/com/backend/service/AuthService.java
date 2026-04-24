@@ -5,6 +5,8 @@ import com.backend.auth.dto.LoginRequest;
 import com.backend.auth.dto.RegisterRequest;
 import com.backend.auth.dto.UserResponse;
 import com.backend.entity.UserAccount;
+import com.backend.entity.UserProfile;
+import com.backend.repository.UserProfileRepository;
 import com.backend.repository.UserRepository;
 import com.backend.security.JwtService;
 import org.springframework.http.HttpStatus;
@@ -18,11 +20,13 @@ public class AuthService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final UserProfileRepository userProfileRepository;
     private final JwtService jwtService;
 
-    public AuthService(UserRepository userRepository, PasswordEncoder passwordEncoder, JwtService jwtService) {
+    public AuthService(UserRepository userRepository, PasswordEncoder passwordEncoder, UserProfileRepository userProfileRepository, JwtService jwtService) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+        this.userProfileRepository = userProfileRepository;
         this.jwtService = jwtService;
     }
 
@@ -34,14 +38,20 @@ public class AuthService {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Email already exists");
         }
 
-        UserAccount user = new UserAccount();
-        user.setUsername(request.username().trim());
-        user.setEmail(request.email().trim().toLowerCase());
-        user.setPassword(passwordEncoder.encode(request.password()));
-        user.setRole("ROLE_USER");
+        UserAccount newUser = new UserAccount();
+        newUser.setUsername(request.username().trim());
+        newUser.setEmail(request.email().trim().toLowerCase());
+        newUser.setPassword(passwordEncoder.encode(request.password()));
+        newUser.setRole("ROLE_USER");
 
-        UserAccount savedUser = userRepository.save(user);
-        return buildAuthResponse(savedUser);
+
+        UserAccount user = userRepository.save(newUser);
+
+        UserProfile profile = new UserProfile();
+        profile.setUser(user);
+
+        userProfileRepository.save(profile);
+        return buildAuthResponse(newUser);
     }
 
     public AuthResponse login(LoginRequest request) {
