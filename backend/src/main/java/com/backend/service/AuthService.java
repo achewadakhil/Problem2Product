@@ -1,9 +1,9 @@
 package com.backend.service;
 
-import com.backend.auth.dto.AuthResponse;
-import com.backend.auth.dto.LoginRequest;
-import com.backend.auth.dto.RegisterRequest;
-import com.backend.auth.dto.UserResponse;
+import com.backend.DTO.request.LoginRequest;
+import com.backend.DTO.request.RegisterRequest;
+import com.backend.DTO.response.AuthResponse;
+import com.backend.DTO.response.UserResponse;
 import com.backend.entity.UserAccount;
 import com.backend.entity.UserProfile;
 import com.backend.repository.UserProfileRepository;

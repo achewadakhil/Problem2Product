@@ -1,14 +1,29 @@
-C:\Problem2Product\backend\src\main\java\com\backend\auth\dto\AuthResponse.java
-C:\Problem2Product\backend\src\main\java\com\backend\auth\dto\LoginRequest.java
-C:\Problem2Product\backend\src\main\java\com\backend\auth\dto\RegisterRequest.java
-C:\Problem2Product\backend\src\main\java\com\backend\auth\dto\UserResponse.java
-C:\Problem2Product\backend\src\main\java\com\backend\BackendApplication.java
-C:\Problem2Product\backend\src\main\java\com\backend\controller\AuthController.java
-C:\Problem2Product\backend\src\main\java\com\backend\controller\UserController.java
-C:\Problem2Product\backend\src\main\java\com\backend\entity\UserAccount.java
-C:\Problem2Product\backend\src\main\java\com\backend\repository\UserRepository.java
-C:\Problem2Product\backend\src\main\java\com\backend\security\JwtAuthenticationFilter.java
-C:\Problem2Product\backend\src\main\java\com\backend\security\JwtService.java
-C:\Problem2Product\backend\src\main\java\com\backend\security\SecurityConfig.java
-C:\Problem2Product\backend\src\main\java\com\backend\service\AuthService.java
-C:\Problem2Product\backend\src\main\java\com\backend\service\CustomUserDetailsService.java
+D:\HCL Java\Projects\Problem2Product\backend\src\main\java\com\backend\BackendApplication.java
+D:\HCL Java\Projects\Problem2Product\backend\src\main\java\com\backend\controller\AuthController.java
+D:\HCL Java\Projects\Problem2Product\backend\src\main\java\com\backend\controller\ProblemController.java
+D:\HCL Java\Projects\Problem2Product\backend\src\main\java\com\backend\controller\UserController.java
+D:\HCL Java\Projects\Problem2Product\backend\src\main\java\com\backend\controller\UserProfileController.java
+D:\HCL Java\Projects\Problem2Product\backend\src\main\java\com\backend\DTO\request\CreateProblemRequest.java
+D:\HCL Java\Projects\Problem2Product\backend\src\main\java\com\backend\DTO\request\CreateSolutionRequest.java
+D:\HCL Java\Projects\Problem2Product\backend\src\main\java\com\backend\DTO\request\LoginRequest.java
+D:\HCL Java\Projects\Problem2Product\backend\src\main\java\com\backend\DTO\request\RegisterRequest.java
+D:\HCL Java\Projects\Problem2Product\backend\src\main\java\com\backend\DTO\response\AuthResponse.java
+D:\HCL Java\Projects\Problem2Product\backend\src\main\java\com\backend\DTO\response\ProblemResponse.java
+D:\HCL Java\Projects\Problem2Product\backend\src\main\java\com\backend\DTO\response\ProblemUserResponse.java
+D:\HCL Java\Projects\Problem2Product\backend\src\main\java\com\backend\DTO\response\SolutionResponse.java
+D:\HCL Java\Projects\Problem2Product\backend\src\main\java\com\backend\DTO\response\UserResponse.java
+D:\HCL Java\Projects\Problem2Product\backend\src\main\java\com\backend\entity\Problem.java
+D:\HCL Java\Projects\Problem2Product\backend\src\main\java\com\backend\entity\ProblemSolution.java
+D:\HCL Java\Projects\Problem2Product\backend\src\main\java\com\backend\entity\ProblemStatus.java
+D:\HCL Java\Projects\Problem2Product\backend\src\main\java\com\backend\entity\UserAccount.java
+D:\HCL Java\Projects\Problem2Product\backend\src\main\java\com\backend\entity\UserProfile.java
+D:\HCL Java\Projects\Problem2Product\backend\src\main\java\com\backend\repository\ProblemRepository.java
+D:\HCL Java\Projects\Problem2Product\backend\src\main\java\com\backend\repository\UserProfileRepository.java
+D:\HCL Java\Projects\Problem2Product\backend\src\main\java\com\backend\repository\UserRepository.java
+D:\HCL Java\Projects\Problem2Product\backend\src\main\java\com\backend\security\JwtAuthenticationFilter.java
+D:\HCL Java\Projects\Problem2Product\backend\src\main\java\com\backend\security\JwtService.java
+D:\HCL Java\Projects\Problem2Product\backend\src\main\java\com\backend\security\SecurityConfig.java
+D:\HCL Java\Projects\Problem2Product\backend\src\main\java\com\backend\service\AuthService.java
+D:\HCL Java\Projects\Problem2Product\backend\src\main\java\com\backend\service\CustomUserDetailsService.java
+D:\HCL Java\Projects\Problem2Product\backend\src\main\java\com\backend\service\ProblemService.java
+D:\HCL Java\Projects\Problem2Product\backend\src\main\java\com\backend\service\UserProfileService.java
