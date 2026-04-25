@@ -1,55 +1,59 @@
 import React, { useState } from "react";
 import API from "../api";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
+
   const [form, setForm] = useState({
     username: "",
     password: "",
   });
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
   const login = async () => {
     try {
       const res = await API.post("/auth/login", form);
 
-      // Save token
       localStorage.setItem("token", res.data.token);
+      localStorage.setItem("username", res.data.username);
 
-      alert("Login successful!");
-      console.log(res.data);
-    } catch (err) {
+      navigate("/dashboard");
+    } catch {
       alert("Invalid credentials");
     }
   };
 
   return (
-    <div style={styles.container}>
-      <h2>Login</h2>
+    <div className="d-flex justify-content-center align-items-center vh-100">
 
-      <input name="username" placeholder="Username" onChange={handleChange} />
-      <input name="password" type="password" placeholder="Password" onChange={handleChange} />
+      <div className="glass-card" style={{ width: "350px" }}>
+        <h3 className="text-center mb-4">Login</h3>
 
-      <button onClick={login}>Login</button>
-      <p>
-        Don't have an account? <Link to="/register">Register</Link>
-      </p>
+        <input
+          type="text"
+          className="form-control mb-3"
+          placeholder="Username"
+          onChange={(e) => setForm({ ...form, username: e.target.value })}
+        />
 
+        <input
+          type="password"
+          className="form-control mb-3"
+          placeholder="Password"
+          onChange={(e) => setForm({ ...form, password: e.target.value })}
+        />
+
+        <button onClick={login} className="btn btn-primary w-100 btn-custom">
+          Login
+        </button>
+
+        <p className="text-center mt-3">
+          Don't have an account?{" "}
+          <Link to="/register">Register</Link>
+        </p>
+      </div>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    width: "300px",
-    margin: "100px auto",
-    display: "flex",
-    flexDirection: "column",
-    gap: "10px",
-  },
 };
 
 export default Login;

@@ -1,53 +1,56 @@
 import React, { useState } from "react";
 import API from "../api";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const navigate = useNavigate();
+
   const [form, setForm] = useState({
     username: "",
-    email: "",
     password: "",
   });
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
   const register = async () => {
     try {
-      const res = await API.post("/auth/register", form);
+      await API.post("/auth/register", form);
       alert("Registered successfully!");
-      console.log(res.data);
-    } catch (err) {
-      alert(err.response?.data?.message || err.response?.data || "Error");
-      console.log(err);
+      navigate("/login");
+    } catch {
+      alert("Error registering");
     }
   };
 
   return (
-    <div style={styles.container}>
-      <h2>Register</h2>
+    <div className="d-flex justify-content-center align-items-center vh-100">
 
-      <input name="username" placeholder="Username" onChange={handleChange} />
-      <input name="email" placeholder="Email" onChange={handleChange} />
-      <input name="password" type="password" placeholder="Password" onChange={handleChange} />
+      <div className="glass-card" style={{ width: "350px" }}>
+        <h3 className="text-center mb-4">Create Account</h3>
 
-      <button onClick={register}>Register</button>
-      <p>
-        Already have an account? <Link to="/">Login</Link>
-      </p>
+        <input
+          type="text"
+          className="form-control mb-3"
+          placeholder="Username"
+          onChange={(e) => setForm({ ...form, username: e.target.value })}
+        />
+
+        <input
+          type="password"
+          className="form-control mb-3"
+          placeholder="Password"
+          onChange={(e) => setForm({ ...form, password: e.target.value })}
+        />
+
+        <button onClick={register} className="btn btn-success w-100 btn-custom">
+          Sign Up
+        </button>
+
+        <p className="text-center mt-3">
+          Already have an account?{" "}
+          <Link to="/login">Login</Link>
+        </p>
+      </div>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    width: "300px",
-    margin: "100px auto",
-    display: "flex",
-    flexDirection: "column",
-    gap: "10px",
-  },
 };
 
 export default Register;
